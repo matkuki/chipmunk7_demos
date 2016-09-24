@@ -5,4 +5,4 @@ description = "Demos for Chipmunk7 physics library"
 license = "MIT"
 
 # Deps
-requires "nim >= 0.14.0", sdl2 >= 1.1, opengl >= 1.1"
+requires "nim >= 0.14.0, sdl2 >= 1.1, opengl >= 1.1"
