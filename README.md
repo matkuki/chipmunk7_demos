@@ -46,7 +46,7 @@ The SDL2_gfx library is licensed under zlib license.<br>
 * You can select either OpenGL or SDL2 as the renderer in the data module using the ```DRAW_WITH_OPENGL``` constant
 
 ## Notes/warnings:
-* The Chipmunk7 wrapper is slightly modified for the project and should be treated as EXPERIMENTAL. Do not use it in production code as
-it uses the non-public API, which may change at any time.
+* The Chipmunk7 wrapper is slightly modified for the project and should be treated as EXPERIMENTAL. Do not use it in production code as it uses the non-public API, which may change at any time.
+* The code uses the Python notation instead of the recomended Nim style. I may change it if enough people request it.
 * On my Windows Vista x64 machine, when using OpenGL for rendering the application seems to hang on startup for anywhere from
 5 to 30 seconds. I have tested this on Ubuntu and never got this problem, so I'm assuming it's something with Windows. Any more information would be appreciated.
