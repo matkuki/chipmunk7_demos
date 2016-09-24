@@ -688,8 +688,8 @@ proc init_opengl() =
         quit "Error creating OpenGL context!"
     
     discard glSetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE)
-    discard glSetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, GL_MAJOR_VERSION)
-    discard glSetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, GL_MINOR_VERSION)
+    discard glSetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, GL_MAJOR_VERSION.ord)
+    discard glSetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, GL_MINOR_VERSION.ord)
     
     loadExtensions()
 #    glMatrixMode(GL_PROJECTION)
@@ -771,7 +771,7 @@ proc draw_text_opengl(text: string, position: chipmunk.Vect,
     glTexImage2D(
         GL_TEXTURE_2D, 
         0, 
-        GL_RGBA,
+        GL_RGBA.ord,
         text_surface.w, 
         text_surface.h, 
         0, 
@@ -1069,7 +1069,7 @@ proc render_surface*(surface: sdl2.SurfacePtr, rectangle: sdl2.Rect) =
     glTexImage2D(
         GL_TEXTURE_2D, 
         0, 
-        GL_RGBA, 
+        GL_RGBA.ord, 
         surface.w, 
         surface.h,  
         0, 
