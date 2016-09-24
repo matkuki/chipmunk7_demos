@@ -1,5 +1,4 @@
 # Package
-name: "chipmunk7_demos"
 version: "1.0"
 author: "Matic Kukovec"
 description: "Demos for Chipmunk7 physics library"
