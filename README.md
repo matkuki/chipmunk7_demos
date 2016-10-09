@@ -35,6 +35,7 @@ The SDL2_gfx library is licensed under zlib license.<br>
 * Chipmunk7 wrapper library (https://github.com/BlaXpirit/nim-chipmunk)
 
 ## Installation/compilation notes
+* compile the demos with: ```nim c chipmunk7_demos.nim```
 * compiling with the ```--define:chipmunkUnsafe``` flag
   * Compiles the demos in UNSAFE mode, which shows extra details about the internal workings of the Chipmunk library
 * Nim sdl2 and opengl can be installed using Nimble (https://github.com/nim-lang/nimble)
