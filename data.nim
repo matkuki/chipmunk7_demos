@@ -267,7 +267,7 @@ proc get_arc_points(cx, cy, r, start_angle, arc_angle :GLfloat,
 proc init_font*() =
     if ttf.ttfInit() != sdl2.SdlSuccess:
         quit("An error occured while initializing ttf font!")
-    font = openFont("EffectsEighty.otf", 18)
+    font = openFont("resources/EffectsEighty.otf", 18)
     if font == nil:
         quit("An error occured while opening ttf font file!")
 
@@ -396,16 +396,16 @@ proc init_sdl*() =
     # Initialize the logo images
     when DRAW_WITH_OPENGL == false:
         nim_logo_texture = surface_to_texture(
-            file_to_surface("nim_logo.png") 
+            file_to_surface("resources/nim_logo.png") 
         )
         sdl_logo_texture = surface_to_texture(
-            file_to_surface("sdl_logo.png") 
+            file_to_surface("resources/sdl_logo.png") 
         )
         opengl_logo_texture = surface_to_texture(
-            file_to_surface("opengl_logo.png")
+            file_to_surface("resoures/opengl_logo.png")
         )
         chipmunk_logo_texture = surface_to_texture(
-            file_to_surface("chipmunk_logo.png")
+            file_to_surface("resources/chipmunk_logo.png")
         )
 
 proc draw_dot_sdl(position: chipmunk.Vect,
@@ -713,22 +713,22 @@ proc init_opengl() =
     # Initialize the logos
     when DRAW_WITH_OPENGL == true:
         nim_logo_surface = resize_surface(
-            file_to_surface("nim_logo.png"),
+            file_to_surface("resources/nim_logo.png"),
             nim_logo_rectangle.w,
             nim_logo_rectangle.h,
         )
         sdl_logo_surface = resize_surface(
-            file_to_surface("sdl_logo.png"),
+            file_to_surface("resources/sdl_logo.png"),
             sdl_logo_rectangle.w,
             sdl_logo_rectangle.h,
         )
         opengl_logo_surface = resize_surface(
-            file_to_surface("opengl_logo.png"),
+            file_to_surface("resources/opengl_logo.png"),
             opengl_logo_rectangle.w,
             opengl_logo_rectangle.h,
         )
         chipmunk_logo_surface = resize_surface(
-            file_to_surface("chipmunk_logo.png"),
+            file_to_surface("resources/chipmunk_logo.png"),
             chipmunk_logo_rectangle.w,
             chipmunk_logo_rectangle.h,
         )
