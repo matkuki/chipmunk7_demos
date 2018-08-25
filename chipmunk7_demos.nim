@@ -2,23 +2,25 @@
 import
     chipmunk,
     sdl2,
-    sdl2.gfx,
+    sdl2/gfx,
     os,
     math,
     random,
     strutils,
-    strfmt,
+    strformat,
     data,
-    demos.logo_smash,
-    demos.player,
-    demos.sticky,
-    demos.spaces,
-    demos.weight_scale,
-    demos.pyramid,
-    demos.springs,
-    demos.dominos,
-    demos.chains,
-    demos.buoyancy
+    demos / [
+        logo_smash,
+        player,
+        sticky,
+        spaces,
+        weight_scale,
+        pyramid,
+        springs,
+        dominos,
+        chains,
+        buoyancy
+    ]
 
     
 var
@@ -217,14 +219,14 @@ proc draw_info() =
             Vect(x: TEXT_X_OFFSET_1, y: TEXT_Y_OFFSET_0 + 4*data.FONT_SIZE)
         )
         info_string = "Rotating kinetic energy : $1" % [if ke < 1e-10f: 
-                                                            0.0.format("5.2e") 
+                                                            fmt"{0.0:5.2e}"
                                                         else: 
-                                                            ke.format("5.2e")]
+                                                            fmt"{ke:5.2e}"]
         data.draw_text(
             info_string, 
             Vect(x: TEXT_X_OFFSET_1, y: TEXT_Y_OFFSET_0 + 5*data.FONT_SIZE)
         )
-        info_string = "Running time: $1s" % demo_time.format("5.2f")
+        info_string = "Running time: $1s" % fmt"{demo_time:5.2f}"
         data.draw_text(
             info_string, 
             Vect(x: TEXT_X_OFFSET_1, y: TEXT_Y_OFFSET_0 + 7*data.FONT_SIZE)
@@ -246,7 +248,7 @@ proc draw_info() =
         # Display that 'Safe Mode' is active
         info_string = "Chipmunk is running in safe mode."
         data.draw_text(info_string, Vect(x: TEXT_X_OFFSET_1, y: TEXT_Y_OFFSET_0))
-        info_string = "Running time: $1s" % demo_time.format("5.2f")
+        info_string = "Running time: $1s" % fmt"{demo_time:5.2f}"
         data.draw_text(
             info_string, 
             Vect(x: TEXT_X_OFFSET_1, y: TEXT_Y_OFFSET_0 + 2*data.FONT_SIZE)

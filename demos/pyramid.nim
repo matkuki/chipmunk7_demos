@@ -5,8 +5,7 @@ import
     sdl2,
     math,
     random,
-    strutils,
-    strfmt
+    strutils
 
 var space: chipmunk.Space
 

@@ -6,7 +6,7 @@ import
     math,
     random,
     strutils,
-    strfmt
+    strformat
 
 var 
     space: chipmunk.Space
@@ -165,20 +165,20 @@ proc draw*() {.procvar.} =
     )
     data.draw_text(
         "Total force: $1, Total weight: $2. The ball is touching $3 shapes." % [
-            force.format("5.2f"),
-            weight.format("5.2f"),
+            fmt"{force:5.2f}",
+            fmt"{weight:5.2f}",
             $contact_count
         ],
         Vect(x: DEMO_TEXT_X_OFFSET, y: DEMO_TEXT_Y_OFFSET_LINE_1)
     )
     if crush_force > 10.0:
         data.draw_text(
-            "The ball is being crushed. (f: $1)" % crush_force.format(".2f"),
+            "The ball is being crushed. (f: $1)" % fmt"{crush_force:.2f}",
             Vect(x: DEMO_TEXT_X_OFFSET, y: DEMO_TEXT_Y_OFFSET_LINE_2)
         )
     else:
         data.draw_text(
-            "The ball is not being crushed. (f: $1)" % crush_force.format(".2f"),
+            "The ball is not being crushed. (f: $1)" % fmt"{crush_force:.2f}",
             Vect(x: DEMO_TEXT_X_OFFSET, y: DEMO_TEXT_Y_OFFSET_LINE_2)
         )
 

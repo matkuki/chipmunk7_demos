@@ -2,9 +2,11 @@
 import
     chipmunk,
     sdl2,
-    sdl2.gfx,
-    sdl2.ttf,
-    sdl2.image,
+    sdl2 / [
+        gfx,
+        ttf,
+        image
+    ],
     opengl,
     glu,
     math,
@@ -139,7 +141,7 @@ converter cp_to_sdl2_color(in_color: chipmunk.SpaceDebugColor): sdl2.Color =
 
 proc frand*(): Float {.inline.} = 
     result = chipmunk.Float(
-        random.random(float(high(int))) / chipmunk.Float(high(int))
+        random.rand(float(high(int))) / chipmunk.Float(high(int))
     )
 
 proc frand_unit_circle*(): chipmunk.Vect {.inline.} = 
@@ -155,9 +157,9 @@ proc set_random_color*(shape: chipmunk.Shape) {.inline.} =
     )
     var color = cast[ptr chipmunk.SpaceDebugColor](shape.userData)
     color[] = chipmunk.SpaceDebugColor(
-        r: random.random(1.0), 
-        g: random.random(1.0), 
-        b: random.random(1.0), 
+        r: random.rand(1.0), 
+        g: random.rand(1.0), 
+        b: random.rand(1.0), 
         a: 1.0
     )
 
@@ -327,9 +329,9 @@ proc draw_text_sdl(text: string, position: chipmunk.Vect) =
 ## SDL procedures
 proc file_to_surface(image_file: string): sdl2.SurfacePtr =
     ## Load image surface from a file
-    if image_file.toLower().endsWith(".png"):
+    if image_file.toLowerAscii().endsWith(".png"):
         result = image.load(image_file)
-    elif image_file.toLower().endsWith(".bmp"):
+    elif image_file.toLowerAscii().endsWith(".bmp"):
         result = sdl2.loadBMP(image_file)
     else:
         quit "'" & image_file & "' is in a unsupported format!"
@@ -402,7 +404,7 @@ proc init_sdl*() =
             file_to_surface("resources/sdl_logo.png") 
         )
         opengl_logo_texture = surface_to_texture(
-            file_to_surface("resoures/opengl_logo.png")
+            file_to_surface("resources/opengl_logo.png")
         )
         chipmunk_logo_texture = surface_to_texture(
             file_to_surface("resources/chipmunk_logo.png")

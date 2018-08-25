@@ -5,8 +5,7 @@ import
     sdl2,
     math,
     random,
-    strutils,
-    strfmt
+    strutils
 
 const
     FLUID_DENSITY = 0.00014
@@ -42,7 +41,7 @@ proc water_pre_solve(arb: chipmunk.Arbiter,
         clipped: seq[chipmunk.Vect] = newSeq[chipmunk.Vect](
             cast[chipmunk.PolyShape](poly).count + 1
         )
-
+    
     for i in 0..count:
         var
             a: chipmunk.Vect = body.localToWorld(
