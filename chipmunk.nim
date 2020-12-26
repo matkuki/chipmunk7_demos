@@ -1297,10 +1297,10 @@ proc clampVect*(bb: BB; v: Vect): Vect {.inline, cdecl.} =
 proc wrapVect*(bb: BB; v: Vect): Vect {.inline, cdecl.} =
   ## Wrap a vector to a bounding box.
   var dx: Float = fabs(bb.r - bb.l)
-  var modx: Float = fmod(v.x - bb.l, dx)
+  var modx: Float = math.mod(v.x - bb.l, dx)
   var x: Float = if (modx > 0.0): modx else: modx + dx
   var dy: Float = fabs(bb.t - bb.b)
-  var mody: Float = fmod(v.y - bb.b, dy)
+  var mody: Float = math.mod(v.y - bb.b, dy)
   var y: Float = if (mody > 0.0): mody else: mody + dy
   return v(x + bb.l, y + bb.b)
 

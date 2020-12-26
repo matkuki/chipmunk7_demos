@@ -150,8 +150,8 @@ proc init_space() =
                 )
             )
         body.position = v(
-            flerp(-150.0, 150.0, random.random(1.0)), 
-            flerp(-150.0, 150.0, random.random(1.0))
+            flerp(-150.0, 150.0, random.rand(1.0)), 
+            flerp(-150.0, 150.0, random.rand(1.0))
         )
         var shape: Shape = space.addShape( 
             newCircleShape(

@@ -4,7 +4,6 @@ import
     ../data,
     sdl2,
     math,
-    random,
     strutils
 
 
